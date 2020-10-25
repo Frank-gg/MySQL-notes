@@ -1,0 +1,9 @@
+﻿  10_25 exercise.cpp
+  game.c
+C:\Users\Administrator\source\repos\Pro10_25\game.c(3,54): warning C4028: 形参 1 与声明不同
+C:\Users\Administrator\source\repos\Pro10_25\game.c(4,1): error C2449: 在文件范围内找到“{”(是否缺少函数头?)
+C:\Users\Administrator\source\repos\Pro10_25\game.c(14,1): error C2059: 语法错误:“}”
+C:\Users\Administrator\source\repos\Pro10_25\game.c(17,1): error C2449: 在文件范围内找到“{”(是否缺少函数头?)
+C:\Users\Administrator\source\repos\Pro10_25\game.c(26,1): error C2059: 语法错误:“}”
+  test.c
+  正在生成代码...
