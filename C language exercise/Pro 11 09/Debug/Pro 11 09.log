@@ -1,0 +1,6 @@
+﻿  test1109.c
+D:\repos\Pro 11 09\test1109.c(10,9): warning C4477: “printf”: 格式字符串“%ld”需要类型“long”的参数，但可变参数 1 拥有了类型“__int64”
+D:\repos\Pro 11 09\test1109.c(10,9): message : 请考虑在格式字符串中使用“%lld”
+D:\repos\Pro 11 09\test1109.c(10,9): message : 请考虑在格式字符串中使用“%I64d”
+D:\repos\Pro 11 09\test1109.c(16,1): error C2449: 在文件范围内找到“{”(是否缺少函数头?)
+D:\repos\Pro 11 09\test1109.c(24,1): error C2059: 语法错误:“}”
