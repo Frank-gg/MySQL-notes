@@ -1,0 +1,6 @@
+﻿  exercise11 14.c
+D:\repos\Pro 11 14\exercise11 14.c(42,9): warning C4477: “printf”: 格式字符串“%X”需要类型“unsigned int”的参数，但可变参数 1 拥有了类型“short *”
+D:\repos\Pro 11 14\exercise11 14.c(43,9): warning C4477: “printf”: 格式字符串“%X”需要类型“unsigned int”的参数，但可变参数 1 拥有了类型“char *”
+D:\repos\Pro 11 14\exercise11 14.c(44,9): warning C4477: “printf”: 格式字符串“%X”需要类型“unsigned int”的参数，但可变参数 1 拥有了类型“float *”
+D:\repos\Pro 11 14\exercise11 14.c(45,9): warning C4477: “printf”: 格式字符串“%X”需要类型“unsigned int”的参数，但可变参数 1 拥有了类型“double *”
+  Pro 11 14.vcxproj -> D:\repos\Pro 11 14\Debug\Pro 11 14.exe
