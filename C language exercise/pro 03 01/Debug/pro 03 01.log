@@ -1,0 +1,4 @@
+﻿  test.c
+C:\Users\Administrator\source\repos\pro 03 01\test.c(21,20): warning C4018: “<=”: 有符号/无符号不匹配
+C:\Users\Administrator\source\repos\pro 03 01\test.c(31,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“__int64 *”
+  pro 03 01.vcxproj -> C:\Users\Administrator\source\repos\pro 03 01\Debug\pro 03 01.exe
