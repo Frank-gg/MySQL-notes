@@ -1,6 +1,0 @@
-﻿  game.c
-C:\Users\Administrator\source\repos\game11\game.c(68,25): warning C4553: “==”: 未使用表达式结果；是否打算使用“=”?
-  test.c
-C:\Users\Administrator\source\repos\game11\test.c(18,17): warning C4133: “函数”: 从“char [3][3]”到“int (*)[3]”的类型不兼容
-  正在生成代码...
-  game11.vcxproj -> C:\Users\Administrator\source\repos\Pro10_25\Debug\game11.exe

@@ -1,2 +1,0 @@
-C:\Users\Administrator\source\repos\game2\Debug\game2.exe
-C:\Users\Administrator\source\repos\game2\Debug\game2.pdb
