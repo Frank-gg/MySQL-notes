@@ -102,7 +102,7 @@ SQL 执行慢有两种情况：
 EXPLAIN sql语句;
 ```
 
-![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/115.png)
+![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/114.5.png)
 
 |     字段      |                             含义                             |
 | :-----------: | :----------------------------------------------------------: |
@@ -320,7 +320,7 @@ SET profiling=1; -- 开启profiling 开关；
 SHOW PROFILES;
 ```
 
-![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/116.png)
+![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/115.png)
 
 - 查看到该 SQL 执行过程中每个线程的状态和消耗的时间：
 
@@ -328,13 +328,13 @@ SHOW PROFILES;
 SHOW PROFILE FOR QUERY query_id;
 ```
 
-![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/117.png)
+![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/116.png)
 
 **Sending data 状态**表示 MySQL 线程开始访问数据行并把结果返回给客户端，而不仅仅是返回给客户端。由于在 Sending data 状态下，MySQL 线程需要做大量磁盘读取操作，所以是整个查询中耗时最长的状态。
 
 - 在获取到最消耗时间的线程状态后，MySQL 支持选择 all、cpu、block io 、context switch、page faults 等类型查看 MySQL 在使用什么资源上耗费了过高的时间。例如，选择查看 CPU 的耗费时间：
 
-![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/118.png)
+![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/117.png)
 
 |    字段    |              含义              |
 | :--------: | :----------------------------: |
@@ -610,7 +610,7 @@ SELECT * FROM information_schema.OPTIMIZER_TRACE\G; -- \G代表竖列展示
 
 当使用load 命令导入数据的时候，适当的设置可以提高导入的效率。
 
-![image-20211115183138826](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/119.png)
+![image-20211115183138826](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/118.png)
 
 对于 InnoDB 类型的表，有以下几种方式可以提高导入的效率：
 
@@ -675,7 +675,7 @@ Explain select * from employees where name > 'a' order by name;
 
 - 一次（单路）扫描算法：一次性取出满足条件的所有字段，然后在排序区 sort  buffer 中排序后直接输出结果集。排序时内存开销较大，但是排序效率比两次扫描算法要高。
 
-![image-20211115190336356](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/120.png)
+![image-20211115190336356](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/119.png)
 
 MySQL 通过比较系统变量 `max_length_for_sort_data` 的大小和Query语句取出的字段总大小， 来判定是否那种排序算法，如果`max_length_for_sort_data` 更大，那么使用第二种优化之后的算法；否则使用第一种。
 
@@ -715,13 +715,13 @@ Mysql4.1版本之后，开始支持SQL的子查询。这个技术可以使用SEL
 > EXPLAIN SELECT * FROM emp WHERE id = 1 OR age = 30;	-- 两个索引，并且不是复合索引
 > ```
 >
-> ![image-20211115191243212](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/121.png)
+> ![image-20211115191243212](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/120.png)
 >
-> ![image-20211115191315982](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/122.png)
+> ![image-20211115191315982](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/121.png)
 >
 > 使用 union 替换 or ：
 >
-> ![image-20211115191329478](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/123.png)
+> ![image-20211115191329478](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/122.png)
 >
 > 比较下重要指标，发现主要差别是 type 和 ref 这两项
 >
@@ -795,7 +795,7 @@ SQL提示，是优化数据库的一个重要手段，简单来说，就是在SQ
 > EXPLAIN SELECT * FROM tb_seller USE INDEX(idx_seller_name) WHERE name='小米科技';
 > ```
 
-![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/124.png)
+![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/123.png)
 
 - IGNORE INDEX：让 MySQL 忽略一个或者多个索引，则可以使用 IGNORE INDEX 作为提示
 
@@ -803,7 +803,7 @@ SQL提示，是优化数据库的一个重要手段，简单来说，就是在SQ
 > EXPLAIN SELECT * FROM tb_seller IGNORE INDEX(idx_seller_name) WHERE name = '小米科技';
 > ```
 
-![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/125.png)
+![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/124.png)
 
 - FORCE INDEX：强制 MySQL 使用一个特定的索引
 
@@ -811,7 +811,7 @@ SQL提示，是优化数据库的一个重要手段，简单来说，就是在SQ
 > EXPLAIN SELECT * FROM tb_seller FORCE INDEX(idx_seller_name_sta_addr) WHERE NAME='小米科技';
 > ```
 
-![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/126.png)
+![](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/125.png)
 
 ------
 
@@ -845,7 +845,7 @@ SQL提示，是优化数据库的一个重要手段，简单来说，就是在SQ
 
 通过MySQL的主从复制，实现读写分离，使增删改操作走主节点，查询操作走从节点，从而可以降低单台服务器的读写压力。
 
-![image-20211115224024092](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/127.png)
+![image-20211115224024092](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/126.png)
 
 - 采用分布式数据库架构
 
@@ -867,7 +867,7 @@ SQL提示，是优化数据库的一个重要手段，简单来说，就是在SQ
 SHOW VARIABLES LIKE 'have_query_cache';	
 ```
 
-![image-20211115224449578](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/128.png)
+![image-20211115224449578](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/127.png)
 
 - 查看当前MySQL是否开启了查询缓存 
 
@@ -875,7 +875,7 @@ SHOW VARIABLES LIKE 'have_query_cache';
 SHOW VARIABLES LIKE 'query_cache_type';
 ```
 
-![image-20211115224542703](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/129.png)
+![image-20211115224542703](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/128.png)
 
 - 查看查询缓存的占用大小
 
@@ -883,7 +883,7 @@ SHOW VARIABLES LIKE 'query_cache_type';
 SHOW VARIABLES LIKE 'query_cache_size';
 ```
 
-![image-20211115224607085](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/130.png)
+![image-20211115224607085](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/129.png)
 
 - 查看查询缓存的状态变量
 
@@ -891,7 +891,7 @@ SHOW VARIABLES LIKE 'query_cache_size';
 SHOW STATUS LIKE 'Qcache%';
 ```
 
-![image-20211115224654046](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/131.png)
+![image-20211115224654046](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/130.png)
 
 各个变量的含义如下：
 
@@ -918,7 +918,7 @@ MySQL的查询缓存默认是关闭的，需要手动配置参数 query_cache_ty
 
 在 /usr/my.cnf 配置中，增加以下配置 ： 
 
-![image-20211115224829099](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/132.png)
+![image-20211115224829099](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/131.png)
 
 配置完毕之后，重启服务既可生效 ；
 
@@ -1076,7 +1076,7 @@ mysql [options] [database]
 mysql -uroot -p2143 db01 -e "select * from tb_book";
 ```
 
-![1555325632715](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/133.png) 
+![1555325632715](https://github.com/Frank-gg/MySQL-notes/blob/master/MySQL%20Picture/132.png) 
 
 ------
 
