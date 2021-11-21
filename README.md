@@ -16,3 +16,7 @@ https://time.geekbang.org/column/intro/139
 [高性能MySQL(第3版) (豆瓣) (douban.com)](https://book.douban.com/subject/23008813/)
 
 [MySQL是怎样运行的 (豆瓣) (douban.com)](https://book.douban.com/subject/35231266/)
+
+笔记里可能有一些错误，希望大家发现后热心指出。
+
+个人邮箱：ffguan98@gmail.com
