@@ -1,5 +1,5 @@
 # MySQL-notes
-The repository records my notes on my study of MySQL.
+
 关于MySQL的学习笔记，阅读顺序分别是：
 
 - 数据库基础：包括MySQL体系结构、SQL语言、多表查询、存储过程、触发器和视图等知识点
