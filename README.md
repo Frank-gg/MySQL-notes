@@ -1,4 +1,4 @@
-# MySQL-notes
+# MySQL_notes
 
 关于MySQL的学习笔记，阅读顺序分别是：
 
